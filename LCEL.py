@@ -40,4 +40,8 @@ story_with_analysis = story_chain | analysis_chain
 result = story_with_analysis.invoke({"topic": "a rainy day"})
 print(result)
 
+chat = ChatOpenAI()
+formatted_messages = template.format_messages(test="Hello, how are you?")
+result = chat.invoke(formatted_messages)
+print(result.content)
 
