@@ -18,3 +18,10 @@ openai_llm = OpenAI()
 response = gemini_pro.invoke("Tell me a joke about light bulbs!")
 print(response)
 
+from langchain_community.llms import FakeListLLM
+
+fake_llm = FakeListLLM(responses=["Hello"])
+
+sesult = fake_llm.invoke("Any input will return Hello")
+print(Result)
+
