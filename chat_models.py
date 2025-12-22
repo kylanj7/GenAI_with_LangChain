@@ -36,4 +36,4 @@ messages = [
     HumanMessage(content="Write a Python function to calculate factorial")
 ]
 response = chat.invoke(messages)
-
+print(response.content)
