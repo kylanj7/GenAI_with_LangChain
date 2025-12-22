@@ -17,3 +17,14 @@ dalle = DallEAPIWrapper(
 image_url= dalle.run("Adetailed technical diagram of a quantum computer")
 print(image_url)
 
+from langchain_community.llms import Replicate
+
+text2image = Replicate(
+    model="stability-ai/stable-diffusion-3.5-large",
+    model_kwargs={
+        prompt_strength": 0.85,
+        "cfg": 4.5,
+        "steps": 40,
+        "aspect_ratio": "1:1",
+        "output_format": "webp",
+        "out_
