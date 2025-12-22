@@ -25,3 +25,15 @@ fake_llm = FakeListLLM(responses=["Hello"])
 sesult = fake_llm.invoke("Any input will return Hello")
 print(Result)
 
+from langchain_anthropic import ChatAnthropic
+
+from langchain_core.messages import SystemMessage, HumanMessage
+
+chat = ChatAnthropic(model="claude3-opus-20240229")
+
+messages = [
+    SystemMessage(content="You're a helpful programming assistant")
+    HumanMessage(content="Write a Python function to calculate factorial")
+]
+response = chat.invoke(messages)
+
