@@ -27,4 +27,12 @@ text2image = Replicate(
         "steps": 40,
         "aspect_ratio": "1:1",
         "output_format": "webp",
-        "out_
+        "output_quality": 90
+    }
+)
+
+image_url = text2image.invoke(
+   "A detailed techinical diagram of an AI Agent"
+)
+
+
