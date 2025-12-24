@@ -78,7 +78,19 @@ for question in questions:
 
 import base64
 with open("stable-diffusion.png", 'rb') as image_file:
-   image_bytes = image_file.read()
-   base64_bytes = base64.b64encode(image_bytes).decode("utf-8")
+ image_bytes = image_file.read()
+ base64_bytes = base64.b64encode(image_bytes).decode("utf-8")
 
-prinmt
+
+prompt = [
+   {"type": "text", "text": "Describe the image: "},
+   {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_bytes}"}},
+]
+
+
+llm = ChatGoogleGenerativeAI(
+    model="gemini-1.5-pro",
+    temperature=0,
+)
+response = llm.invoke([HumanMessage(content=prompt)])
+print(response.content)
