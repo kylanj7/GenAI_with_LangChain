@@ -97,6 +97,8 @@ llm = ChatGoogleGenerativeAI(
 response = llm.invoke([HumanMessage(content=prompt)])
 print(response.content)
 
+## Using Google Cloud Storage
+
 prompt = [
    {"type": "text", "text": "Describe the video in a few sentences."},
    {"type": "media", "file_uri": video_uri, "mime_type": "video/mp4"},
