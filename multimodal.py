@@ -72,3 +72,13 @@ questions = [
 for question in questions:
     print(f"\nQ: {question}")
     print(f"A: {analyze_image(image_url, question)}")
+
+
+## With Gemini 
+
+import base64
+with open("stable-diffusion.png", 'rb') as image_file:
+   image_bytes = image_file.read()
+   base64_bytes = base64.b64encode(image_bytes).decode("utf-8")
+
+prinmt
