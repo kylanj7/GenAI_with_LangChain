@@ -35,4 +35,13 @@ image_url = text2image.invoke(
    "A detailed techinical diagram of an AI Agent"
 )
 
+orint(image_url)
+
+from langchain_core.messages import HumanMessage
+from langchain_openai import ChatOpenAI
+
+def analyze_image(image_url: str, question: str) -> str:
+   chat = ChatOpenAI(model="gpt-40-mini", max_tokens=256)
+
+
 
