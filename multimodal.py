@@ -58,3 +58,17 @@ def analyze_image(image_url: str, question: str) -> str:
             }
         ]
     )
+
+    response = chat.invoke([message])
+    return response.content
+
+image_url = "https://replicate.delivery/yhqm/JGTpV46FdT7dE5RGgs0dy5qgLegwOqoIPPaAvrfOmOGMwkMUA/out-0.png"
+questions = [
+    "What objects do you see in this image?",
+    "What is the overall mood or atmosphere?",
+    "Are there any people in the image?"
+]
+
+for question in questions:
+    print(f"\nQ: {question}")
+    print(f"A: {analyze_image(image_url, question)}")
