@@ -48,5 +48,9 @@ class MessagesIterator:
 fake_llm = GenericFakeChatModel(messages=MessagesIterator())
 
 class JobApplicationState(TypedDict):
-    
-                             
+    job_description: str
+    is_suitable: bool
+    application: str
+    actions: Annotated[list[str], add]
+
+def generate_applications(state):                             
