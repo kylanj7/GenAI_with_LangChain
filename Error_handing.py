@@ -9,6 +9,7 @@ from typing_extensions import TypedDict
 from typing import Annotated, Literal
 from operator import add
 from langgraph.graph import StateGraph, START, END
+from langchain_core.runnables.config import RunnableConfig
 
 class IsSuitableJobEnum(Enum):
     YES = "YES"
@@ -46,5 +47,6 @@ class MessagesIterator:
 
 fake_llm = GenericFakeChatModel(messages=MessagesIterator())
 
-
+class JobApplicationState(TypedDict):
+    
                              
