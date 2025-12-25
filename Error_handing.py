@@ -5,7 +5,10 @@ from lanchain_core.language_core.language_models import GenericFakeChatModel
 from langchain_core.messages import AIMessage
 from langchain.output_parsers import EnumOutputParser
 from langchain_google_vertexai import ChatVertexAI
-
+from typing_extensions import TypedDict
+from typing import Annotated, Literal
+from operator import add
+from langgraph.graph import StateGraph, START, END
 
 class IsSuitableJobEnum(Enum):
     YES = "YES"
@@ -31,3 +34,17 @@ def analyze_job_description(state):
       logger.error(f"Exception {e} occured while executing analyze_job_description")
       return {is_suitable": False
     
+class MessagesIterator:
+    def __init__(self):
+        self._count = 0
+
+    def __iter__(self):
+        self._count += 1
+        if self._count % 2 == 1:
+            raise ValueError("Something went 
+        return AIMessage(content="YES")
+
+fake_llm = GenericFakeChatModel(messages=MessagesIterator())
+
+
+                             
