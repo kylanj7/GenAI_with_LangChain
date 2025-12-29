@@ -92,7 +92,10 @@ graph = builder.complile()
 from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()
 
+res = graph.invoke({job_description":"fake_jd"}, config={"configurable": {model_provider": "fake"}})
+print(res)
 
+   
 
               
 
