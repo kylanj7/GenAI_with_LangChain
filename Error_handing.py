@@ -67,6 +67,35 @@ llms = {
     "Google": llm
 }
 
-def analyze_job_description(state
+def analyze_job_description(state, config: RunnableConfig):
+    try:
+        print("here")
+        llm = config["configurable"].get("model_provider", "Google")
+        analyze_chain = llm | parser
+        prompt = prompt_template_enum.format(job_description=job_description)
+        result = analyze_chain.invoke(prompt)
+        return {is_suitable": result}
+    except Exception as e:
+        logger.error(f"Exception {e} occured while executing analyze_job_description")
+        return {"is_suitable": False}
+
+builder = StateGraph(JobApplicationState)
+builder.add_node("analyze_job_description", analyze_job_description)
+builder.add_node("generate_application", generate_application)
+builder.add_edge(START, "analyze_job_description")
+builder.add_conditional_edges(
+    "analyze_job_description", is_suitable_condition)
+builder.add_edge("generate_application", END)
+
+graph = builder.complile()
+
+from IPython.display import Image, display
+display(Image(graph.get_graph().draw_mermaid_png()
+
+
+
+              
+
+
 
 
