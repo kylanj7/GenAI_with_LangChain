@@ -54,3 +54,19 @@ class JobApplicationState(TypedDict):
     actions: Annotated[list[str], add]
 
 def generate_applications(state):                             
+    print("...Generating Application...")
+    return {"application": "some_fake_application", "actions": ["action2"]}
+
+def is_suitable_condition)state: JobApplicationState) -> Literal["generate_application", END]:
+        if state.get("is_suitable"):
+            return "generate_application"
+        return END
+
+llms = {
+    "fake": fake_llm,
+    "Google": llm
+}
+
+def analyze_job_description(state
+
+
